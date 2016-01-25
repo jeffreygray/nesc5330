@@ -1,3 +1,11 @@
-x = (-pi):pi/40:pi
-y = x.*sin(3*x.^2).exp(-x.^2/4);
-plot(x, y)
+m=menu(’Pick a plot’,’Sine plot’,’Cosine plot’);
+if m==1,
+x=(-pi):pi/40:pi;
+y=sin(x);
+title(’Sine’)
+else
+x=(-pi):pi/40:pi;
+y=cos(x);
+title(’Cosine’)
+end
+plot(x,y)
