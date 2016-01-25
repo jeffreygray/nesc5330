@@ -27,5 +27,5 @@ function output = calculateAndPlot (centerX, centerY, arcLength)
     scaledMean = mean(points)
     scaledVar = var(points)
     plot(points, ".")
-    % newtest
  %   plot(cos(points), sin(points), ".")
+ % will this go?
