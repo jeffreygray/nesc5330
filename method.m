@@ -29,8 +29,9 @@
 
 
 
-function output = stats (dataset)
-output = [disp('mean: ' mean(dataset)), disp('variance: ' var(dataset))];
+function output = method (dataset)
+sampleMean = mean(dataset);
+sampleVar = var(dataset);
 
-
+output = disp('mean :', disp(sampleMean));
 endfunction
