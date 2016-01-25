@@ -4,6 +4,7 @@
 %   lab1
 %   file: 'calculateAndPlot.m' 
 
+% function description:
 % given a center and length in radians,
 % create points along arc
 % calculate mean and variance of original rand[0,1) and scaled/shifted points
