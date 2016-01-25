@@ -9,8 +9,8 @@
 % calculate mean and variance of original rand[0,1) and scaled/shifted points
 % compare the two sets of statistics
 
-function output = calculateAndPlot (center, arcLength)
-    [a, b] = center
+function calculateAndPlot (center, arcLength)
+    [a, b] = [center(1,1), center(1,2)]
     radius = sqrt((a-0).^2 + (b-0).^2)
     theta = arcLength / radius
     arcDist = theta / 360 * 2 * pi * radius
