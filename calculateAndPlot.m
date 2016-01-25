@@ -11,8 +11,9 @@
 
 function output = calculateAndPlot (centerX, centerY, arcLength)
     radius = sqrt((centerX-0).^2 + (centerY-0).^2)
-    theta = arcLength / radius
+    theta = arcLength / radius * 180 / pi
+
     
-    newX = centerX + radius*(sin(theta))
-    newY = centerY - radius*(1-cos(theta))
+    newX = radius*(cos(theta*pi/180))
+    newY = radius*(sin(theta*pi/180))
 endfunction
