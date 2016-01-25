@@ -4,9 +4,14 @@
 ##  lab1
 ##  file method.m 
 
-function [sampleMean, sampleVar] = stats (dataset)
+   
+##function output = stats(dataset)
+
+
+##    output = [sampleMean, sampleVar];
+    
+function [sampleMean, sampleVar] = stats(dataset)
     sampleMean = mean(dataset);
     sampleVar = var(dataset);
 
-##    output = [sampleMean, sampleVar];
 endfunction
