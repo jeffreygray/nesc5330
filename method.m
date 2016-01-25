@@ -25,10 +25,12 @@
     01.24.16
     nesc5330
     lab1
-    file template
+    file method.m 
 %}
 
 
-function [retval] = new (input1, input2)
+function [sampleMean, sampleVariance] = stats (dataset)
+sampleMean = mean(dataset);
+sampleVariance = var(dataset);
 
 endfunction
