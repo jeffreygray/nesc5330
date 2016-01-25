@@ -5,7 +5,7 @@
 ##  file: 'hw1-2-1.m' 
 ##  desc: 'calculates the mean, var, and sd for a vector'
 
-function output = stats (dataset)
+function output = hw121 (dataset)
     sampleMean = mean(dataset);
     sampleVar = var(dataset);
     sampleStd = std(dataset);
