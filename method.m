@@ -21,16 +21,17 @@
 
 ## Author: Octave Online User <oo@oo-back2>
 ## Created: 2016-01-25
-%{  jeff gray
-    01.24.16
-    nesc5330
-    lab1
-    file method.m 
-%}
+##  jeff gray
+##  01.24.16
+##  nesc5330
+##  lab1
+##  file method.m 
 
 
-function [sampleMean, sampleVariance] = stats (dataset)
-sampleMean = mean(dataset);
-sampleVariance = var(dataset);
 
+function output = method (dataset)
+sampleMean = var(dataset);
+sampleVariance = mean(dataset);
+output = [sampleMean, sampleVariance]
+##[sampleMean, sampleVariance] = [mean(dataset), var(dataset)]
 endfunction
