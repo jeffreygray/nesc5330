@@ -29,9 +29,9 @@
 
 
 
-function output = method (dataset)
+function output = stats (dataset)
 sampleMean = mean(dataset);
 sampleVar = var(dataset);
 
-output = disp('mean :', disp(sampleMean));
+output = [sampleMean, sampleVar];
 endfunction
