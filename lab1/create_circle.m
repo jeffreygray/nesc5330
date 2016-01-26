@@ -1,3 +1,11 @@
+%   jeff gray
+%   01.24.2016
+%   nesc5330
+%   lab1
+%   file: 'create_circle.m'
+
+%   description: code used to plot
+
 function create_circle()
 % remove possibly conflicting data
 clf

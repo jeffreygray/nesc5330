@@ -1,3 +1,11 @@
+%   jeff gray
+%   01.24.2016
+%   nesc5330
+%   lab1
+%   file: 'controlledArc.m'
+
+%   description: code used to plot
+
 function controlledArc
 clf
 rng(9711963);

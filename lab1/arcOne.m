@@ -1,4 +1,13 @@
+%   jeff gray
+%   01.24.2016
+%   nesc5330
+%   lab1
+%   file: 'arcOne.m'
+
+%   description: code used to plot
+
 function arcOne
+rng(9711973);
 % create figure
 figure1 = figure;
 
