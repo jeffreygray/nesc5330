@@ -1,0 +1,23 @@
+1.7
+
+1. MATLAB uses = for assignment 
+	B = A stores elements of A into B
+
+2. how to use for loop to update current avg while iterating through vector
+
+function average = doit(a,b)
+traversed = [];
+for v = a:b 
+    traversed(end+1) = v;
+    average = sum(traversed) / size(traversed,2);
+end
+
+
+3.  
+a = 50;
+b = 100;
+r = (b-a).*rand(1000,1) + a;
+r = scale.*rand(elem,1) + shift
+
+relative frequency histogram: normalized hist where sum(bin_vals) = 1
+
