@@ -1,0 +1,24 @@
+describe the world:
+    omega := {x_1, x_2, ... x_n}
+    (world)       finite set of mutally exclusive events
+                                p(x_1 /\ x_2) = NULL
+
+random variable: a function, not a variable
+    X : omega --> x_i % x_i is a realization of random var X
+
+* probability f(n)
+    p(X == x_i) isElem (0,1) OR p(x_i) isElem (0,1) 
+
+    p(x_i \/ x_j) = p(x_i) + p(x_j)
+
+    p(\/ x_i) = 1
+
+expectations: % useful when discussing entropy
+    E[X] = sum(1,n)[p(x_i)* x_i] % mean
+
+    let f be any deterministic f(n) producing a number/vector/matrix
+    E[f(X)] = sum(1, n) [p(x_i) * f(x_i)]
+
+    var(x) = E[X^2] - E[X]^2
+
+we must hope that sample statistics will converge to an expectation

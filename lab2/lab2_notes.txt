@@ -1,0 +1,54 @@
+task: build a neuron to execute pattern recognition / categorization
+
+credo:
+    if a microscopic neurobiological process can perform
+    an abstract version of a cognitive process (pattern rec, concept form),
+    then this cognitive f(n) is preserved when a larger system is
+    built from the component
+
+the mcculloch-pitts neuron:
+        BOOLEAN DECISION MAKER
+    x(k) : input vector of components x_1(k), x_2(k)... x_n(k)
+
+        feature detectors
+
+    w_j  : postsynaptic neuron
+    kth excitation of j : y_j = x^T(k) * w_j
+                                output: z_j(k) =    {1 if y_j >= threshold, or 0}
+    let j elemOf {1, 2, ... m}
+    
+grandmother code:
+    with 7 elements
+    2^7 possibilities of output vectors
+    {0, 1}^7
+
+types of errors:
+    type 1: failure to identify 
+    type 2: false positive
+
+how to generate length 1 vecs
+v^T(k)v(k) = 1
+
+for every input, there exists a plane:
+        origin
+        weight vector (w_j)
+        input vector (x(k))
+    angle btwn weight and input
+        cos(angle) describes similarity
+            a normalized inner product
+    arclength bwtn weight and input
+
+sqrt sum squares
+    euclidean length
+
+setting thresholds:
+    excitation
+        y_j = x^T(k) * w(j)
+            OR
+        y_j = dot(x(k), w(j))
+
+    draw perpendicular line from w_j to point x(k)
+
+    the larger theta is, the smaller the angle that defines 
+        the set of recognized inputs
+

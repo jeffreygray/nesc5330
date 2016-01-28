@@ -1,0 +1,109 @@
+question to ask as biologist: 
+    why have a brain?
+        you do better when you can predict what happens in the future
+        animals can predict and manipulate the environment FASTER by having a brain
+*it doesn't matter, it's just arbitrary whether a sponge can be classified as an animal
+        EXPENSIVE: brain itself is 20% or 20W of bodie's energy - joules/sec
+        rather than care of bits/sec, nature cares about bits/joule because of conserving nrg
+        
+neuroscience needed to know:
+    we only care about neurons, not glia
+    
+    THE NEURON
+        input structure: dendrites bring it all together into the soma
+        output structure: axons send it out
+        
+        structure that connects axons to dendrites: synapse
+        transducer: postsynaptic site
+
+our definition of computation: 
+* is this mccullogh-pitts neuron?
+
+    input where:    i represents inputs, 
+                    k represents discrete time increments (simulations)
+                    t represents continuous time (actual brain)
+            X_i(k)
+            X_i(t)
+            X_i(k) is elem of {0,1} because it can be either on or off
+
+            how to represent finite numbers as a continuous input, use the rate of pulses
+            brain uses interpulse interval code to send rational numbers
+
+            WE WILL USE X_i(k) isElem {0,1} for computational purposes in matlab
+
+LINEAR ALGEBRA:
+
+    all our vectors will be column vectors
+    x(k)  = |   x_1(k)  |
+            |   x_2(k)  |
+            |   .....   |
+            |   x_nx(k) |
+    
+   w_j(k) = |  w_1(j)  |
+            |  w_2(j)  |
+            |  .....   |
+            |  w_ij(k) |
+
+  y_j(k)  = summation(i) [W_ij * X_i(k)]
+
+  z_j(k) = {0,1  if y_j(k)>= theta --> 1
+
+  inner product scalar product
+  * see picture on blackboard
+* why do you have to transpose the vector twice? 
+
+        y_j(k) = w_j ^t * x(k) = X^t(k) * W_j
+
+    matrix W
+
+        x^T(k) * W = y^T(k)
+        
+        transpose again
+        W^Tx(k) = y(k)
+
+^^^ ** THIS IS A FEEDFORWARD MECHANISM
+
+definition of a vector based off mathematics: a vector is a point
+
+because neurons are computing in higher dimensional spaces that we can't imagine
+
+another job of neuron is pattern recognition
+   
+    higher dimensional sphere for characteristics of representing baseball vs basketball player
+    convert the heuristic into a higher-dimensional shape 
+    network: learn to create two separate spheres that could even touch in places
+
+    vector of a point that represents a dot within a higher dimensional shape
+    
+**    PATTERN RECOGNITION DECIDES WHERE THE POINT BELONGS!!!
+
+* information theory get basic info
+
+more terms:
+
+    representation: abstract
+    latent variable: everything we want to make inferences about is hidden
+
+    experience = the actual world + noise of sensory signals
+
+    WHY have lots of layers? the data might not be in good shape
+    
+    problem harder than studying the brain: because the world is made up of many brains, the world is much more complex than the brain.
+    it is thus extremely hard to make a mathematical model of the world
+
+    the xor problem: can you pass a single plane that groups Xs together away from Os
+
+    to create a hyperplane to represent the threshold of a real-world problem
+
+cognition:
+
+    abstraction: with a bunch of examples of class A and class B, you know multiple classes exist
+    generalization: after seeing something new, deciding what class it falls under
+    concept formation:
+    clustering:
+    pattern: set of features
+        lots of patterns -> leads to an attempt to group them which leads to concept formation
+    prototype: center of cluster concept
+
+    prediction/forecasting: actually in the future
+    estimation: retrodiction of past
