@@ -1,2 +1,0 @@
-function [inputs] = createinputs(row, col, numInputs)
-%   including numInputs despite its redund

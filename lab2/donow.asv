@@ -1,7 +1,0 @@
-function donow(weight, set1, set2)
-
-    thresh = [pi/24 : pi/12 : pi
-
-    ip1 = set1 * weight;
-    ip2 = set2 * weight;
-    ip1 > 
