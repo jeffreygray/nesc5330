@@ -1,0 +1,27 @@
+LEARNING AND MEMORY
+-------------------
+
+difference equation for associative memory:
+    /\ w_j(k) = summation (x(k) - w_j(k) * y_j(k)
+                          presynaptic     postsynaptic
+
+scalar exponential moving averager
+    /\ w(k) = summation (x(k) - w(k))
+              rate const
+                units/sec
+    
+    w(k+1) = w(k) + /\w(k)  
+    newval   oldval    change
+
+moving average depends on:
+    1. number that is an abstraction of past samples
+    2. current sample
+    3. rate constant, epsilon
+
+q1: express current value of memory based off the history of inputs
+(see appendix p21) 
+
+exponential forgetting: m(t+1) = eps sum(k=0, inf) (1-eps) ^k * x(t-k)
+
+
+
