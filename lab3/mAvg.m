@@ -3,7 +3,7 @@
 %   lab3
 %   description: calculates moving average
 
-function [movingAvg] = mAvg(inputVec, eps)
+function [movingAvg] = mAvg(inputVec)
 %    clear;
     clc;
     
@@ -14,7 +14,7 @@ function [movingAvg] = mAvg(inputVec, eps)
     end
     
     movingAvg(1,1) = 0;      %   base case
-    epsilon = eps;            %   setting rate constant, could be specified as parameter
+    epsilon = .08;            %   setting rate constant, could be specified as parameter
    
     %    populate vector movingAvg while iterating through inputVec
     for i = 1 : length(inputVec)

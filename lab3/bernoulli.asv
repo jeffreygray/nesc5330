@@ -1,0 +1,14 @@
+%   jeff gray
+%   jhg7nm
+%   lab3
+%   description: runs problem 3.3B.2
+
+function bernoulli()
+    clc;
+    clf;
+    rng(9711963);
+    
+    randNums = rand(1000,1);
+    epsRanges = [.001:.001:1]';
+    plot(epsRanges, (mAvgEps(randNums, )-0.5)^2)
+

@@ -1,7 +1,7 @@
 %   jeff gray
 %   jhg7nm
 %   lab3
-%   description: runs problem 3.3B
+%   description: runs problem 3.3B.1
 
 function averagingSim()
     clc;
