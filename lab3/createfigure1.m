@@ -1,5 +1,11 @@
+%   jeff gray
+%   jhg7nm
+%   lab3
+%   description: creates figure 1
+
 function createfigure1()
 clf;
+clc;
 clear;
 
 rng(9711963);
