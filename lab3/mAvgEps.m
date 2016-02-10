@@ -3,7 +3,7 @@
 %   lab3
 %   description: calculates moving average
 
-function [movingAvg] = mAvg(inputVec, eps)
+function [movingAvg] = movAvgEps(inputVec, eps)
 %    clear;
     clc;
     
