@@ -14,18 +14,19 @@ function [synW] = catMod(inputMat)
     end
 
     %   forward declarations
-    epsilon = 0.1;
-    dWeight(1,1) = 0;
+    epsilon = 0.2;
+    synW = ones(2,size(inputMat, 2));
+    synW(:, 1) = 0;
     
     %   perform a moving average on inputs
     %   given a state of category activation
     for i = 1 : size(inputMat, 2)
-        if (inputMat(1,i) = 1)
+        if (inputMat(1,i) == 1)
             %   update first attribute
             synW(1, i+1) = synW(1, i) + epsilon ...
-            * (inputMat(2, i) - synW(1, i))
+            * (inputMat(2, i) - synW(1, i));
             %   update second attribute
             synW(2, i+1) = synW(2, i) + epsilon ...
-            * (inputMat(3, i) - synW(2, i))
+            * (inputMat(3, i) - synW(2, i));
         end
     end
