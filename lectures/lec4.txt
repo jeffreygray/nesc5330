@@ -1,0 +1,3 @@
+ideal epsilon when values converge: 1/n
+
+
