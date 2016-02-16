@@ -14,7 +14,7 @@ function [synW] = catModStart(inputMat, xstart, ystart)
     end
 
     %   forward declarations
-    epsilon = 0.2;
+    epsilon = 1/20;
     synW = ones(2,size(inputMat, 2));
     synW(1, 1) = xstart;
     synW(2, 1) = ystart;
