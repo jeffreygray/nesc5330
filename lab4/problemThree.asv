@@ -1,0 +1,15 @@
+%   jeff gray
+%   jhg7nm
+%   02.15.2016
+%   lab4
+%   file: problem 4.1.3
+
+function problemThree
+    clc;
+    clf;
+    clear;
+    rng(9711963);
+    
+    set1 = rand(500, 1) * .6 - .2;
+    set2 = rand(500, 1) * .3 + .4;
+    set = [set1; set2];
