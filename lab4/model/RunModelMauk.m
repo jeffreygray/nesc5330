@@ -1,24 +1,20 @@
+
  %% clears previous run data and figures
 %clear all
 %close all
-%% parameters (free variables/ independant variables)
-% time-step parameters (have to be integers)------------------------
-init_length = 3;        % the inital time period that the cerebellum does not receive any input
-CS_length = 11;         % the length of CS (4-14)
-US_length = 3;          % US_lenght < CS_length (12-14)
-end_length = 10;        % the final time period that the cerebellum does not receive any input
-                          % this parameter is needed for plotting because the activities 
-                          % of neurons extends beyond the time CS and US occur
-PTB_time = CS_length+init_length-US_length; %time that would imply CR success for motor activity measurement
-sessions = 20;         % the number of training sessions
-trialsPerSession = 100; % the number of trials per session
-CS_on = 0;              % 0: off; 1: on
-US_on = 0;              % 0: off; 1: on
-trace_on = 0;           % 0: trace conditioning is off, a value greater than 0 invokes the trace  
-                          % conditioning model, which requires the hippocampus
-learning = 1;
-extinction = 2001;    % Parameters to change on which trial CS/US presentation is switched on/off  
-relearning = 50001;      % to test for extinction and relearning.  
+init_length = 9;        % No US or CS input (Prevents out of bounds errors 
+                         % during callbacks)
+CS_length = 10;         % Duration of CS input
+US_length = 15;         % Duration of US input  
+end_length = 10;        % No CS or US input, used for plotting
+sessions = 110;         % Number of training sessions
+trialsPerSession = 15;  % Number of trials per session
+CS_on = 0;              % Determines if trial will have CS input            
+US_on = 0;              % Determines if trial will have US input
+trace = 1;             % Trace period 
+learning = 1;           % Trial to start learning
+extinction = 1201;      % Trial to start extinction
+relearning = 20001;     % Trial to start learning after extinction  
                            
 %% constants
 % time constants

@@ -1,3 +1,4 @@
+
 %%  Model For Cerebellum Trace Conditioning with Appropriate Timing
  %  Includes updated spike timing rules
  %  Includes published timing data for more realistic delays
@@ -50,8 +51,9 @@ blink_threshold = .3; % Level of muscle activity needed to trigger blink
 
 %% Initializations
 % Setup US, CS, and time vectors
-[CS, US, timesteps] = CSUS(init_length, CS_length, US_length, ...
-    end_length, CS_on, US_on, trace);
+[CS, US] =CSUS(init_length,CS_length,US_length,end_length,CS_on,US_on,trace);
+timesteps = length(CS);
+
 totalTrials = sessions*trialsPerSession;    % Total training trials
 PTB_time = timesteps-end_length-US_length;  % Timestep before US onset,
                                              % required for properly timed 
@@ -127,15 +129,18 @@ for trial=1:totalTrials
     if trial == learning
         US_on = 1;
         CS_on = 1;
-        [CS, US, timesteps] = CSUS(init_length,CS_length,US_length,end_length,CS_on,US_on,trace);
+        [CS, US] = CSUS(init_length,CS_length,US_length,end_length,CS_on,US_on,trace);
+        timesteps = length(CS);
     end
     if trial == extinction
         US_on = 0;
-        [CS, US, timesteps] = CSUS(init_length,CS_length,US_length,end_length,CS_on,US_on,trace);
+        [CS, US] = CSUS(init_length,CS_length,US_length,end_length,CS_on,US_on,trace);
+        timesteps = length(CS);
     end
     if trial == relearning
         US_on = 1;
-        [CS, US, timesteps] = CSUS(init_length,CS_length,US_length,end_length,CS_on,US_on,trace);
+        [CS, US] = CSUS(init_length,CS_length,US_length,end_length,CS_on,US_on,trace);
+        timesteps = length(CS);
     end
     
     % Cf oscillations
