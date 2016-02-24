@@ -19,8 +19,16 @@ function [output] = classify(inputVec, thresh)
     weight3 = [cos(pi/3), sin(pi/3)];
     thresh = thresh;
     
-    stateA = dot(inputVec, weight1) > cos(thresh);
-    stateB = dot(inputVec, weight2) > cos(thresh);
-    stateC = dot(inputVec, weight3) > cos(thresh);
-    output = [stateA, stateB, stateC]';
+    stateA = dot(inputVec, weight1) % > cos(thresh);
+    stateB = dot(inputVec, weight2) % > cos(thresh);
+    stateC = dot(inputVec, weight3) % > cos(thresh);
+%    output = [stateA, stateB, stateC]';
+    
+    if (weight1 > weight2 && weight1 > weight3)
+        output = stateA;
+    end
+    if (weight2 > weight1 && weight2 > weight3)
+        output = stateB;
+    end
+    else output = stateC;
     
