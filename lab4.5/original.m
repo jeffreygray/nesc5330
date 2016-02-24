@@ -21,7 +21,7 @@ sessions = 110;         % Number of training sessions
 trialsPerSession = 15;  % Number of trials per session
 CS_on = 0;              % Determines if trial will have CS input            
 US_on = 0;              % Determines if trial will have US input
-trace = 30;             % Trace period 
+trace = 10;             % Trace period 
 learning = 1;           % Trial to start learning
 extinction = 1201;      % Trial to start extinction
 relearning = 20001;     % Trial to start learning after extinction 
@@ -122,7 +122,7 @@ rng(10*seed); % 32
 r4 = rand(totalTrials);
 
 % Training/Extinction Trials
-figure();
+%figure();
 for trial=1:totalTrials 
     
     % Habituation, extinction, and relearning
@@ -230,7 +230,7 @@ for trial=1:totalTrials
     % ERROR SIGNAL DETECTION AND SYNAPTIC MODIFCATION
     
     % Counts spikes that fall within the spike-timing window
-    spikeCount(trial) = sum(window.*spikes(trial, :));
+%    spikeCount(trial) = sum(window.*spikes(trial, :));
     
     % Error signal 
     error = spikeCount(trial)-2;
@@ -238,9 +238,15 @@ for trial=1:totalTrials
     % Synaptic modification
     w1(trial+1) = errcapF(w1(trial) + e_BC*error);
     
-    % Records motor activity 1 timestep before US for successful blinking
-    bl_(trial)=mot(PTB_time); 
-    
+   
+    % connecting next trial with the previous one-----------
+    w1_(trial, timesteps-1:timesteps) = w1_(trial,timesteps-2); % sets weights of last two timesteps to be same as 
+    w2_(trial, timesteps-1:timesteps) = w2_(trial,timesteps-2);   % last recorded value
+    w1_(trial+1,:) = w1_(trial,timesteps-2);                    % sets last recorded weight to be baseline 
+    w2_(trial+1,:) = w2_(trial,timesteps-2);                      % for next trial
+
+    bl_(trial)=mot(CS_length+init_length-US_length); % record motor activity at time that would imply CR success
+                                                       % (i.e. predicting and blocking the air puff) 
     % Update activity matrices 
     DCN = [DCN; dcn2];
     MOT = [MOT; mot];
@@ -251,21 +257,21 @@ for trial=1:totalTrials
     B_C = [B_C; BC];
     
     % Real time plotting of IO activity over single trials
-    if mod(trial, 20) == 0
+%    if mod(trial, 20) == 0
         
         % IO activity
-        plot(cf(trial, :)*200, 'Color', rand(3, 1));       
+%        plot(cf(trial, :)*200, 'Color', rand(3, 1));       
         
-        hold on;
-        title(strcat('Trial', num2str(trial)));
-        xlabel('Timesteps');
-        ylabel('cf activity');
-        pause(.02);
-    end
+%        hold on;
+%        title(strcat('Trial', num2str(trial)));
+%        xlabel('Timesteps');
+%        ylabel('cf activity');
+%        pause(.02);
+%    end
 end
 
 tot = tot./100;
-toc
+
 
 %% Figures
 %-------------------------------------------------------
@@ -275,7 +281,7 @@ figure()
 correctness=zeros(1,sessions);
 for i=1:sessions
     % sums succesful blinks (indicated by a 1) over trials 1-10, 11-20, etc. 
-    correctness(i)=100*(sum(bl_(1,trialsPerSession*(i-1)+1:trialsPerSession*i)>=blink_threshold))/trialsPerSession; 
+    correctness(i)=100*(sum(bl_(1,trialsPerSession*(i-1)+1:trialsPerSession*i)>=blink_threshold));
 end
 plot(correctness,'-');
 xlabel('session number')
@@ -283,62 +289,4 @@ ylabel('%CR')
 ylim([-10 110])
 title('Performance','fontsize',14)
 
-%-------------------------------------------------------
-%---------------------IO Frequency--------------------
-%-------------------------------------------------------
-figure();
-plot(mean(cf(:, startWindow:endWindow)*200, 2))
-title('IO Frequency During Spike Timing Window', 'FontSize', 14);
-xlabel('Trials');
-ylabel('IO Activity (Hz)');
 
-%-------------------------------------------------------
-%---------------------Full-Combined--------------------
-%-------------------------------------------------------
-% Learning
-Lcut = extinction;
-Ecut = Lcut+399;
-% Purk and DCN
-figure();
-[hAx, hline1, hline2] = plotyy(1:Lcut, PURK(1:Lcut, PTB_time-4)'/inPurk, (1:Lcut)', DCN(1:Lcut, PTB_time-3)/inDCN);
-axis([-100, Lcut+100, -.1 1.1]);
-axis(hAx(2), [-100, Lcut+100, -.1 1.1]);
-xlabel('Trials', 'fontsize', 14);
-ylabel(hAx(2),'DCN Activity Relative to Spontaneous (uninhibitied)','fontsize', 14)
-ylabel(hAx(1),'Purkinje Activity Relative to Spontaneous', 'fontsize', 14)
-legend('Purkinje Activity', 'DCN Activity')
-
-% Weight and Motor Activity
-figure();
-[hAx2, hline3, hline4] = plotyy(1:Lcut, MOT(1:Lcut, PTB_time), (1:Lcut)', w1(1:Lcut));
-axis([-100, Lcut+100, -.1 .6]);
-set(gca, 'YTick', [0, 0.1, 0.2, 0.3, 0.4, 0.5]);
-axis(hAx2(2), [-100, Lcut+100, -.065 .4]);
-set(hAx2(2), 'YTick', [0, 0.1, 0.2, 0.3, 0.4, 0.5]);
-xlabel('Trials', 'fontsize', 14);
-ylabel(hAx2(2), 'Granule-BC Weight', 'fontsize', 14)
-ylabel(hAx2(1), 'Motor Activity', 'fontsize', 14)
-legend('Motor Activity', 'Granule-BC Weight')
-
-% Extinction
-% Purk and DCN
-figure();
-[hAx, hline1, hline2] = plotyy(Lcut:Ecut, PURK(Lcut:Ecut, PTB_time-4)'/inPurk, (Lcut:Ecut)', DCN(Lcut:Ecut, PTB_time-3)/inDCN);
-axis([Lcut-5, Ecut+5, -.1 1.1]);
-axis(hAx(2), [Lcut-5, Ecut+5, -.1 1.1]);
-xlabel('Trials', 'fontsize', 14);
-ylabel(hAx(2),'DCN Activity Relative to Spontaneous (uninhibitied)','fontsize', 14)
-ylabel(hAx(1),'Purkinje Activity Relative to Spontaneous', 'fontsize', 14)
-legend('Purkinje Activity', 'DCN Activity')
-
-% Weight and Motor Activity
-figure();
-[hAx2, hline3, hline4] = plotyy(Lcut:Ecut, MOT(Lcut:Ecut, PTB_time), (Lcut:Ecut)', w1(Lcut:Ecut));
-axis([Lcut-5, Ecut+5, -.1 1.1]);
-set(gca, 'YTick', [0, 0.1, 0.2, 0.3, 0.4, 0.5]);
-axis(hAx2(2), [Lcut-5, Ecut+5, -.038 .4]);
-set(hAx2(2), 'YTick', [0, 0.1, 0.2, 0.3, 0.4, 0.5]);
-xlabel('Trials', 'fontsize', 14);
-ylabel(hAx2(2), 'Granule-BC Weight', 'fontsize', 14)
-ylabel(hAx2(1), 'Motor Activity', 'fontsize', 14)
-legend('Motor Activity', 'Granule-BC Weight')

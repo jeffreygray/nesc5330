@@ -1,5 +1,10 @@
+%   jeff gray
+%   jhg7nm
+%   lab4.5
+%   02.23.2016
+
 % clear all
-close all
+ 
 %% parameters (free variables/ independant variables)
 % time params (have to be integers)------------------------
 pad_len = 5; % the inital time period that the cerebellum does not receive any input
