@@ -6,6 +6,7 @@
  %  Written By: Chris Delianides
  %  Last Edit: 8/4/15
  
+ function [correctness] = correctness(tr)
 
 %% clears previous run data 
 %clear all
@@ -21,7 +22,7 @@ sessions = 110;         % Number of training sessions
 trialsPerSession = 15;  % Number of trials per session
 CS_on = 0;              % Determines if trial will have CS input            
 US_on = 0;              % Determines if trial will have US input
-trace = 30;             % Trace period 
+trace = tr;             % Trace period 
 learning = 1;           % Trial to start learning
 extinction = 1201;      % Trial to start extinction
 relearning = 20001;     % Trial to start learning after extinction 
