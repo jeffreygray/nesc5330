@@ -6,7 +6,7 @@
  %  Written By: Chris Delianides
  %  Last Edit: 8/4/15
  
- %function [w1] = LevyModelTraceSpikes
+ function [w1] = LevyModelTraceSpikes
 
 %% clears previous run data 
 %clear all
@@ -15,7 +15,7 @@ tic
 % timestep parameters (10ms resolution, must be integers)
 init_length = 9;        % No US or CS input (Prevents out of bounds errors 
                          % during callbacks)
-CS_length = 30;         % Duration of CS input
+CS_length = 20;         % Duration of CS input
 US_length = 10;         % Duration of US input  
 end_length = 10;        % No CS or US input, used for plotting
 sessions = 110;         % Number of training sessions

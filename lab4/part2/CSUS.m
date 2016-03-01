@@ -1,4 +1,4 @@
-function [CS, US] =CSUS(init_length,CS_length,US_length,end_length,CS_switch,US_switch,trace)
+function [CS, US, total_length] =CSUS(init_length,CS_length,US_length,end_length,CS_switch,US_switch,trace)
 %creates two (1, n) vectors for timesteps over which each stimulus is active
 if trace == 0
     total_length = init_length+CS_length+end_length; 

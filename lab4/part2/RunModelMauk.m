@@ -190,7 +190,7 @@ for trial=1:totalTrials
     w1_(trial+1,:) = w1_(trial,timesteps-2);                    % sets last recorded weight to be baseline 
     w2_(trial+1,:) = w2_(trial,timesteps-2);                      % for next trial
 
- bl_(train)=mot(CS_len+pad_len-2);                                                       % (i.e. predicting and blocking the air puff)
+ bl_(train)=mot(CS_length+pad_len-2);                                                       % (i.e. predicting and blocking the air puff)
     DCN = [DCN; dcn2];
     MOT = [MOT; mot];
     DIST = [DIST; dist];
