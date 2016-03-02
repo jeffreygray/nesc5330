@@ -6,7 +6,7 @@
  %  Written By: Chris Delianides
  %  Last Edit: 8/4/15
  
- %function [w1] = LevyModelTraceSpikes
+function [w2] = LevyModelTraceSpikes
 
 %% clears previous run data 
 %clear all
