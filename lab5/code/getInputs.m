@@ -1,6 +1,6 @@
 %   this function returns an input set along with a random mutation as well
 %   as the resultant entropy value
-function [inputs, ent] = getInputs()
+function inputs = getInputs()
 
     numInputLines = 16;
     numCategories = 4;
@@ -18,7 +18,7 @@ function [inputs, ent] = getInputs()
     inputs(randX, :) = 0;
     ent = entropy(inputs);
 
-%    inputs(1:8, 1:8) = 1;
-%    inputs(9:16, 9:16) = 1;
+    inputs(1:8, 1:8) = 1;
+    inputs(9:16, 9:16) = 1;
 
 end
