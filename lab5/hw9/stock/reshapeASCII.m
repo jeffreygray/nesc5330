@@ -1,5 +1,5 @@
 function reshaped = reshapeASCII(vector)
 
-reshaped = reshape(vector, [120 82]);
+reshaped = reshape(vector, [12 10]);
 
 end

@@ -1,4 +1,4 @@
-function asciiInputs = runSynaptogenesisModel()
+function runSynaptogenesisModel()
 %% FUNCTION Runs simulation of neurons using
 % adaptive synaptogenesis by Adelsberger-Magnan and Levy
 % Chris Kaylin & Blake Thomas, 2014
@@ -32,8 +32,8 @@ asciiLoad = load('ascii.mat');
 % 11 is 0
 asciiInputs = repmat(asciiLoad.ascii(:, [9 11]), 1, 100);
 function inputset = getInput
-  inputset = asciiInputs;
-%  inputset = getInputs;
+  % inputset = asciiInputs;
+  inputset = getInputs;
 end
 
 % returns a batch of input blocks
@@ -58,16 +58,16 @@ TotalPresentations = 20000; % max number of presentations of input blocks
 PresentationsPerCycle = 1; % number of presentations of a given input block
 CycleCount = floor(TotalPresentations / PresentationsPerCycle);
 FireThreshold = 1.0;
-ReceptivityThreshold = 0.3; % receptive to synaptogenesis
+ReceptivityThreshold = 0.1; % receptive to synaptogenesis
   % as long as activity < ReceptivityThreshold
 AvidityCo = 0.0; % * 0.01;
-Epsilon = 0.00001; % learning constant of the synaptic modification rule
+Epsilon = 0.001; % learning constant of the synaptic modification rule
 Gamma = 0.001; % constant of the probability of synaptogenesis
 InitialWeightValue = 0.1; % value of the weight of new connections
 WeightThreshold = 0.01; % connection gets deleted if the weight falls below 0.05
 Alpha = 0.25;
 RandConnectivity = 0.01;
-StabilityThreshold = 100; % network stable after [threshold] cycles w/o changes in synapse count
+StabilityThreshold = 200; % network stable after [threshold] cycles w/o changes in synapse count
 BlockModificationOn = false;
 RandomInitializationOn = false; % random initialization of weights
 SheddingOn = true;
