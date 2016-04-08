@@ -1,0 +1,21 @@
+filterHelp.txt
+
+Jan 10, 2012
+Blake Thomas
+
+filterVals is a maxtrix of size filterSize x filterSize.
+
+The filter you want to use does not go in the first column, and the other columns have to be rearranged in a peculiar way.
+This is because mod(1,N)+1 = 2, which is the indexing method for both savedexcitation and which filter to use.
+Remember yj = savedexcitation * filter;
+
+For example, a filter 3 long, with shape 0.2 0.5 0.3 would use this matrix:
+
+filterV = [ [.2;.3;.5] , [.5,.2,.3] , [.3,.5,.2] ]; Note the commas vs semicolons
+or      = [ [.2,.5,.3] ; [.3,.2,.5] ; [.5,.3,.2] ];
+
+OR	=  .2 .5 .3
+	   .3 .2 .5
+	   .5 .3 .2
+
+
