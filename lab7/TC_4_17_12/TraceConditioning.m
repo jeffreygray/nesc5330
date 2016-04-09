@@ -1,3 +1,7 @@
+%   jeff gray
+%   04.08.2016
+%   nesc 5330
+
 function TraceConditioning
 clear all;
 more off;
@@ -95,9 +99,9 @@ ActTracker   = zeros(NumTrials,1);
 % load or create weight and connection matricies
 [FanInCon, cInMatrix, wInMatrix] = CreateNetwork(ni, Con, wStart, wDist);
 
-fbWeightList = ones(1,ni);
 fbWeightMatrix = zeros(TrainTime,ni);
 
+fbWeightList = ones(1,ni);
 %disp('Begin Training');
 for counttrials = 1:(NumTrials+1) %counttrials = 1;
 
