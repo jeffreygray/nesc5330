@@ -4,7 +4,7 @@
  %  Error rule based on CF spikes (not just frequencies)
  %  Follows Disterhoft Trace Conditioning Paradigm 1990
  %  Written By: Chris Delianides
- %  Last Edit: 8/4/15
+ %  Last Edit: 9/4/15
  
 function [w2] = LevyModelTraceSpikes
 
