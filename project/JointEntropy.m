@@ -23,7 +23,7 @@ Delta = [1; any(DeltaRow')'];
 VectorX = cumsum(Delta);
 
 % Calculate entropy the usual way on the vector symbols
-H = Entropy(VectorX);
+H = chaosFull(VectorX);
 
 
 % God bless Claude Shannon.

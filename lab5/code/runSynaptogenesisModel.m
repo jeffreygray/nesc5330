@@ -13,7 +13,7 @@ tic
 % Seed random number generator (rng), only for Matlab
 % rng used for synaptogenesis (+ initial connections)
 %     and input generation
-seed = 1;
+seed = 9711963;
 rng(seed);
 % Use randomInputSeed for a separate rng for input generation
 % randomInputSeed = 1;
@@ -32,8 +32,8 @@ asciiLoad = load('ascii.mat');
 % 11 is 0
 asciiInputs = repmat(asciiLoad.ascii(:, [9 11]), 1, 100);
 function inputset = getInput
-  % inputset = asciiInputs;
-  inputset = getInputs;
+  inputset = asciiInputs;
+  % inputset = getInputs
 end
 
 % returns a batch of input blocks

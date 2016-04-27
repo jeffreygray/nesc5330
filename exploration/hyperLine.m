@@ -27,7 +27,7 @@ function hyperLine()
     %%  I/O training
     %   preparation
     % define inputs (combine samples from all four classes)
-    P = [A B C D];
+    % P = [A B C D];
     % define targets
     T = [repmat(a,1,length(A)) repmat(b,1,length(B)) ...
      repmat(c,1,length(C)) repmat(d,1,length(D)) ];
