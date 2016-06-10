@@ -1,0 +1,8 @@
+synaptogenesis utilizes randomly-generated synapses to create itself
+
+will an initially chaotic structure tend to converge faster towards equal entropy or order?
+
+
+associative synaptic modification, explain rule
+
+the effect of input entropy on synaptogenic convergence.
