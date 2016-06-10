@@ -1,12 +1,4 @@
-% JointEntropy: Returns joint entropy (in bits) of each column of 'X'
-% by Will Dwinnell
-%
-% H = JointEntropy(X)
-%
-% H = calculated joint entropy (in bits)
-% X = data to be analyzed
-%
-% Last modified: Aug-29-2006
+
 
 function H = JointEntropy(X)
 
@@ -25,9 +17,5 @@ VectorX = cumsum(Delta);
 % Calculate entropy the usual way on the vector symbols
 H = chaosFull(VectorX);
 
-
-% God bless Claude Shannon.
-
-% EOF
 
 
