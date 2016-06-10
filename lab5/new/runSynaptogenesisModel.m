@@ -10,30 +10,14 @@ tic
 %%   Random Seeds
 % --------------------
 
-% Seed random number generator (rng), only for Matlab
-% rng used for synaptogenesis (+ initial connections)
-%     and input generation
 seed = 9711963;
 rng(seed);
-% Use randomInputSeed for a separate rng for input generation
-% randomInputSeed = 1;
-% randomStream = RandStream.create('mt19937ar', 'Seed', randomInputSeed);
 
 % --------------------
 %%     Functions
 % --------------------
 
-% input function
-% returns a block of input patterns
-% column: an input pattern
-% row: an input line
-asciiLoad = load('ascii.mat');
-% 9 is +
-% 11 is 0
-asciiInputs = repmat(asciiLoad.ascii(:, [9 11]), 1, 100);
 function inputset = getInput
-  % inputset = asciiInputs;
-  % inputset = getInputs;
   inputset = proto;
 end
 

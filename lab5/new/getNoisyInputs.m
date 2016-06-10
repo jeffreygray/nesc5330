@@ -1,3 +1,4 @@
+
 function [noisy_data] = getNoisyInputs(proto)
     noisy_data = proto;
     
