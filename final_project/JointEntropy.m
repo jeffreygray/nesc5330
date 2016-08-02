@@ -1,4 +1,4 @@
-
+% returns val
 
 function H = JointEntropy(X)
 

@@ -1,18 +1,4 @@
-% Entropy: Returns entropy (in bits) of each column of 'X'
-%
-% H = Entropy(X)
-%
-% H = row vector of calculated entropies (in bits)
-% X = data to be analyzed
-%
-% Example: Measure sample entropy of observations of variables with
-%   1, 2, 3 and 4 bits of entropy.
-%
-% Note: Estimated entropy values are slightly less than true, due to
-% finite sample size.
-%
-% X = ceil(repmat([2 4 8 16],[1e3,1]) .* rand(1e3,4));
-% Entropy(X)
+% Entropy: Returns entropy of X
 
 function H = chaosFull(X)
 
